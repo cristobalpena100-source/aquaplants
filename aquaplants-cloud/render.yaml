@@ -1,0 +1,14 @@
+# Blueprint de Render: crea el servicio web desde el repositorio. La base de datos es externa (Neon).
+services:
+  - type: web
+    name: aquaplants-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    healthCheckPath: /salud
+    envVars:
+      - { key: NODE_ENV, value: production }
+      - { key: DATABASE_SSL, value: "true" }
+      - { key: DATABASE_URL, sync: false }   # pegar la cadena de conexión de Neon
+      - { key: JWT_SECRET, generateValue: true }
+      - { key: CORS_ORIGEN, value: "*" }

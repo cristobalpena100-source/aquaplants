@@ -1,0 +1,18 @@
+# Levanta API + PostgreSQL con un solo comando:  docker compose up --build
+services:
+  db:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: aquaplants, POSTGRES_PASSWORD: aquaplants, POSTGRES_DB: aquaplants }
+    volumes: [datos:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U aquaplants"], interval: 3s, retries: 20 }
+  api:
+    build: ./backend
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      DATABASE_URL: postgres://aquaplants:aquaplants@db:5432/aquaplants
+      JWT_SECRET: cambia-este-secreto-por-uno-largo-de-32-o-mas-caracteres
+      SEED_PASSWORD: Cambiar123!
+      SEED_DEVICE_KEY: clave-demo-aquabrain-001-cambiar
+    ports: ["3000:3000"]
+    command: sh -c "node scripts/migrar.js && node scripts/seed.js && node src/server.js"
+volumes: { datos: {} }

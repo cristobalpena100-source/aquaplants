@@ -1,0 +1,14 @@
+:root{--bg:#f4f7f5;--card:#fff;--tx:#1c2b24;--mut:#5f7068;--ac:#1f7a52;--bd:#d8e2dc;--warn:#b7791f;--crit:#c0392b}
+@media(prefers-color-scheme:dark){:root{--bg:#121a16;--card:#1a2520;--tx:#e6efe9;--mut:#9fb0a6;--ac:#4cc38a;--bd:#2c3b33;--warn:#e0a84a;--crit:#ef6b5b}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--bd);background:var(--card)}
+h1{font-size:1.2rem;margin:0}h1 span{color:var(--ac);font-weight:400}h2{font-size:1.05rem;margin:0 0 12px;display:flex;gap:10px;align-items:center}small{color:var(--mut);font-weight:400}
+main{max-width:900px;margin:0 auto;padding:16px}.tarjeta{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:16px}
+label{display:block;margin-bottom:10px;font-size:.9rem;color:var(--mut)}input,select{display:block;width:100%;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+h2 select{width:auto}button{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:8px 14px;font:inherit;cursor:pointer}button.sec{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.error{color:var(--crit);min-height:1.2em}.vacio{color:var(--mut)}.medidas{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.medida{border:1px solid var(--bd);border-radius:10px;padding:12px}.medida b{display:block;font-size:1.8rem}.medida span{color:var(--mut);font-size:.85rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--bd)}
+.advertencia{color:var(--warn);font-weight:600}.critica{color:var(--crit);font-weight:600}
+.cultivo{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}.cultivo select{width:auto}
+svg{width:100%;height:auto}svg .l{fill:none;stroke:var(--ac);stroke-width:2}svg text{fill:var(--mut);font-size:10px}svg .g{stroke:var(--bd)}

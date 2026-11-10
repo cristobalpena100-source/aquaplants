@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AquaPlants · Panel</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header><h1>AquaPlants <span>AquaBrain</span></h1><div id="sesion" hidden><span id="quien"></span> <button id="salir" class="sec">Salir</button></div></header>
+<main>
+  <section id="login" class="tarjeta">
+    <h2>Iniciar sesión</h2>
+    <form id="formLogin">
+      <label>Correo <input type="email" id="correo" required autocomplete="username"></label>
+      <label>Contraseña <input type="password" id="password" required autocomplete="current-password"></label>
+      <button>Entrar</button>
+      <p id="errLogin" class="error" role="alert"></p>
+    </form>
+  </section>
+  <div id="panel" hidden>
+    <section class="tarjeta">
+      <h2>Estado actual <small id="actualizado"></small></h2>
+      <div id="medidas" class="medidas"></div>
+    </section>
+    <section class="tarjeta">
+      <h2>Alertas</h2>
+      <table><thead><tr><th>Fecha</th><th>Nivel</th><th>Cultivo</th><th>Variable</th><th>Valor</th><th>Estado</th><th></th></tr></thead><tbody id="alertas"></tbody></table>
+      <p id="sinAlertas" class="vacio" hidden>Sin alertas.</p>
+    </section>
+    <section class="tarjeta" id="cultivos">
+      <h2>Programa de riego</h2>
+      <div id="listaCultivos"></div>
+    </section>
+    <section class="tarjeta">
+      <h2>Histórico <select id="variable"><option value="nivel_agua">Nivel de agua</option><option value="temperatura">Temperatura</option><option value="humedad">Humedad</option></select></h2>
+      <svg id="grafico" viewBox="0 0 600 180" role="img" aria-label="Gráfico histórico"></svg>
+      <p id="sinHist" class="vacio" hidden>Sin datos todavía.</p>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
